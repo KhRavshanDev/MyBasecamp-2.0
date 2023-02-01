@@ -1,0 +1,49 @@
+<p style="color: green"><%= notice %></p>
+
+<br />
+<div class="card" style="background-color: rgb(129, 207, 255)">
+  <div class="card-header text-center">
+  <br />
+
+    <div id="<%= dom_id @pattach %>">
+      <h1 class="card-title">
+        <strong>Title:</strong>
+        <%= @pattach.title %>
+      </h1>
+      <br />
+
+      <% if @pattach.att.attached? %>
+
+        <% if  @pattach.att.image?%>
+          <h2 class="entry-title"><a href="#"><%= link_to image_tag(@pattach.att, class: "img_upload"),  rails_blob_path(@pattach.att, disposition: "attachment") %>
+        <% else %>
+        <% end %>
+
+                                       <h2 class="entry-title"><a href="#"><%= link_to @pattach.att.filename,  rails_blob_path(@pattach.att, disposition: "attachment") %></a></h2>
+
+      <% end %>
+
+
+      <br /><br />
+      <div class="d-flex">
+        <%= link_to "Edit this pattach", edit_pattach_path(@pattach), class: "btn mx-0 text-light", style: "background-color: #651FFF" %>
+        <%= button_to "Destroy this pattach", @pattach, class:"btn btn-danger btn-hover mx-2", method: :delete %>
+      </div>
+    </div>
+      <div class="d-flex">
+        <%= link_to "Back to pattaches", project_pattaches_path(@project), class: "btn btn-secondary text-light border-dark mt-2" %>
+      </div>
+
+  </div>
+</div>
+
+<style>
+
+.img_upload{
+   border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+</style>

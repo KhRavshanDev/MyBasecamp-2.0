@@ -1,0 +1,68 @@
+<section class="h-100 gradient-form">
+  <div class="container py-3 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10">
+        <div class="card rounded-3 text-black mt-3">
+          <div class="row g-0">
+            <div class="col-lg-6" style="border: 2px">
+              <div class="card-body p-md-5 mx-md-3">
+
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                  <%= render "devise/shared/error_messages", resource: resource %>
+
+                  <h2>Sign Up</h2>
+                  <br /> <br />
+                  
+                <div class="form-outline mb-4 row">
+                  <%= f.label :email, class: "form-label" %><br />
+                  <div class="col-sm-10">
+                  <%= f.email_field :email, class: "form-control", placeholder:"Enter your email address", autofocus: true, autocomplete: "email" %>
+                  </div>
+                  </div>
+
+
+                <div class="form-outline mb-4 row">
+                  <%= f.label :password, class: "form-label" %>
+                  <div class="col-sm-10">
+                  <%= f.password_field :password, class: "form-control", placeholder:"Create password", autocomplete: "new-password" %>
+                  <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <% end %><br />
+                  </div>
+                </div>
+
+                <div class="form-outline mb-4 row">
+                  <%= f.label :password_confirmation, class: "form-label" %><br />
+                  <div class="col-sm-10">
+                  <%= f.password_field :password_confirmation, class: "form-control", placeholder:"Confirm password", autocomplete: "new-password" %>
+                  </div>
+                </div>
+
+                <div class="text-center pt-1 mb-3 pb-0">
+                  <%= f.submit "Sign up", class:"btn btn-success btn-block fa-lg mb-3 w-50", data: {turbo: false} %>
+                </div>
+
+                <br />
+                <div class="d-flex align-items-center justify-content-center pb-3">
+                <p class="mb-0 me-2">Already have an account?</p>
+                  <%= render "devise/shared/links" %>
+
+                <% end %>
+
+              </div>
+            </div>
+
+           
+
+          </div>
+           <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                <h1>Create your account!</h1>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

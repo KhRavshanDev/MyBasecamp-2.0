@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="card" style="background-color: rgb(129, 207, 255)">
+  <div class="card-header">
+  <br />
+
+    <div id="<%= dom_id @todo %>">
+
+    <h3 class="card-title">
+      <strong>Title:</strong>
+      <%= @todo.title %>
+    </h3>
+
+    <br />
+    <div class="d-flex">
+      <%= link_to "Edit this todo", edit_todo_path(@todo), class: "btn mx-0 text-light", style: "background-color: #651FFF" %>
+      <%= button_to "Delete this todo", @todo, class:"btn btn-danger btn-hover mx-2", method: :delete %>
+    </div>
+
+    <%= link_to "Back to Todos", project_todos_path(@project), class: "btn btn-secondary text-light border-dark mt-2" %>
+</div>
+
+

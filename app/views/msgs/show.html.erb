@@ -1,0 +1,50 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="card" style="background-color: rgb(129, 207, 255)">
+  <div class="card-header text-center">
+  <br />
+
+    <div id="<%= dom_id @msg %>">
+  
+      <h3 class="card-title">
+        <%= @msg.title %>
+      </h3>
+      <br />
+
+      <h4 class="card-text">
+        <strong>Description:</strong>
+        <%= @msg.body %>
+      </h4>
+
+      <br />
+      <div class="d-flex">
+        <%= link_to "Edit this message", edit_msg_path(@msg), class: "btn mx-0 text-light", style: "background-color: #651FFF" %>
+        <%= button_to "Delete this message", @msg, class:"btn btn-danger btn-hover mx-2", method: :delete %>
+      </div>
+    </div>
+
+  </div>
+  <br />
+
+  <div class="card-body">
+  <div id="sms">
+    <h2>Comments</h2>
+    <br>
+    <% @sms.each do |sm| %>
+      
+      <h5>
+        <%= sm.title %>
+      </h5>
+     
+        <%= button_to "Delete this comment", [@msg,sm], class: 'btn btn-danger mb-2', method: :delete %>
+        <hr>
+    <% end %>
+  </div>
+  <br />
+  <%= render 'sms/form', sm: @sm %>
+
+      <div class="d-flex">
+        <%= link_to "Back to Messages", project_msgs_path(@project), class: "btn btn-secondary text-light border-dark" %>
+      </div>
+  </div>
+</div>

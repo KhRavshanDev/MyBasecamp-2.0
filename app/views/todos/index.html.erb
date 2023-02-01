@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+
+<h1>Todos</h1><br/>
+<%= render "form", todo: @todo %>
+
+<br />
+  <div class="row row-cols-1 row-cols-md-4">
+    <% @todos.each do |todo| %>
+      <div class="card mx-2 my-2" style="width: 19rem; background-color: rgb(129, 207, 255)">
+        <div class="card-body">
+        <%= render todo %>
+        <br />
+      <%= link_to "Show this todo", todo, class: 'btn btn-indigo mt-auto rounded-5' %>
+      </div>
+      </div>
+
+    <% end %>
+  </div>
+
+  <br />
+  <%= link_to "Back to My Projects", project_path(@project), class: "btn btn-secondary text-light border-dark" %>
+

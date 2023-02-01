@@ -1,0 +1,68 @@
+<br />
+
+<div class="card w-50 mx-auto" style="border-color: #651FFF">
+  <div class="card-header" style="background-color: #651FFF; color: white">
+    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  </div>
+
+  <div class="card-body">
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="form-outline mb-4 row">
+      <%= f.label :email, class: "form-label" %><br />
+      <div class="col-sm-10">
+        <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
+      </div>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="form-outline mb-3 row">
+      <%= f.label :password, class: "form-label" %>
+      <div class="col-sm-10">
+        <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
+          <% if @minimum_password_length %>
+            <em><%= @minimum_password_length %> characters minimum</em>
+          <% end %> <br/>
+          <i>(leave blank if you don't want to change it)</i>
+      </div>
+    </div>
+
+    <div class="form-outline mb-3 row">
+      <%= f.label :password_confirmation, class: "form-label" %><br />
+      <div class="col-sm-10">
+        <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
+      </div>
+    </div>
+
+    <div class="form-outline mb-3 row">
+      <%= f.label :current_password, class: "form-label" %>
+      <div class="col-sm-10">
+        <%= f.password_field :current_password, class: "form-control", autocomplete: "current-password" %> <i>(your current password is needed to confirm your changes)</i>
+      </div>
+    </div>
+
+    <div class="text-center pt-1 mb-2 pb-0">
+      <%= f.submit "Update account", class:"btn btn-block fa-lg mb-0 w-50", style: "background-color: #651FFF; color: white " %>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<br/>
+
+<div class="card w-50 mx-auto border-danger">
+<div class="card-header bg-danger" style="color: white">
+<h3>Deleting account</h3>
+</div>
+  <div class="text-center pt-1 mb-2 pb-0">
+    <p>Are you sure? <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, class:"btn btn-danger btn-block fa-lg mb-0", method: :delete %></p>
+  </div>
+</div>
+
+<%= link_to "Back", :back, class: "btn btn-secondary text-center text-light border-dark mt-2" %>
+

@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+<br />
+
+  <h1>Messages</h1>
+  <br />
+
+  <div id="options">
+  <%= link_to "New Message", new_project_msg_path(@project), class: 'btn btn-success mb-3' %>
+  </div>
+        <div class="row row-cols-1 row-cols-md-4">
+
+          <% @msgs.each do |msg| %>
+            <div class="card mx-2 my-2" style="width: 19rem; background-color: rgb(129, 207, 255)">
+            <div class="card-body">
+            <%= render msg %>
+            <br />
+            <%= link_to "Show this message", msg, class: 'btn btn-indigo mt-auto rounded-5' %>
+            </div>
+            </div>
+
+          <% end %>
+        </div>
+
+<br />
+<%= link_to "Back to My Projects", project_path(@project), class: "btn btn-secondary text-light border-dark" %>

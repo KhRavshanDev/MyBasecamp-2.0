@@ -1,0 +1,61 @@
+<br />
+<div class="card" style="background-color: rgb(129, 207, 255)">
+  <div class="card-header text-center">
+  <br />
+
+    <div id="<%= dom_id @project %>">
+  
+      <h1 class="card-title">
+        <%= @project.name %>
+      </h1>
+      <br/>
+  
+      <h4 class="card-text mb-5">
+        <%= @project.description %>
+      </h4>
+
+      <br/>
+      <div class="d-flex">
+        <%= link_to "Edit this project", edit_project_path(@project), class: "btn mx-0 text-light", style: "background-color: #651FFF" %>
+        <%= button_to "Delete this project", @project, class:"btn btn-danger btn-hover mx-2", method: :delete %>
+      </div>
+    </div>
+
+    <br/>
+    <br/>
+    <div class="d-flex" style="justify-content: center">
+      <div class="card mx-2 my-2 bg-primary" style="width: 18rem">
+        <div class="card-header border-dark" >
+          <%= link_to "Messages", project_msgs_path(@project), class: "text-light" %><br/>
+        </div>
+        <div class="card-body text-light">
+          <h5>Post announcements, progress updates, etc. and keep feedback on topic</h5>
+        </div>
+      </div>
+
+      <div class="card mx-2 my-2 bg-success" style="width: 18rem">
+        <div class="card-header border-dark">
+          <%= link_to "Todos", project_todos_path(@project), class: "text-light" %><br/>
+        </div>
+        <div class="card-body text-light">
+          <h5>Make lists of work that needs to get done, assign items, set due dates, and discuss</h5>
+        </div>
+      </div>
+
+      <div class="card mx-2 my-2 bg-warning" style="width: 18rem">
+        <div class="card-header border-dark">
+          <%= link_to "Attachments", project_pattaches_path(@project), class: "text-dark" %><br/>
+        </div>
+        <div class="card-body">
+          <h5>Share docs, files, images, and spreadsheets</h5>
+        </div>
+      </div>
+    </div>
+    <br/><br/>
+
+    <div class="d-flex">
+        <%= link_to "Back to projects", projects_path, class: "btn btn-secondary text-light border-dark" %>
+      </div>
+
+  </div>
+</div>

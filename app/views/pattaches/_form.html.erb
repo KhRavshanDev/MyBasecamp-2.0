@@ -1,0 +1,33 @@
+<%= form_with(model: pattach) do |form| %>
+  <% if pattach.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(pattach.errors.count, "error") %> prohibited this pattach from being saved:</h2>
+
+      <ul>
+        <% pattach.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-4">
+    <%= form.label :title, class: "form-label", style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.file_field :att %>
+  </div>
+  <br />
+
+  <div class="mb-4">
+    <% @project = Project.find(params[:project_id]) %>
+    <%= form.text_field :project_id, value: @project.id, type: :hidden %>
+  </div>
+
+  <div>
+    <%= form.submit class: "btn mt-auto", style: "background-color: #651FFF; color: white" %>
+    <%= link_to "Back to pattaches", project_pattaches_path(@project), class: "btn btn-secondary text-light border-dark mt-auto" %>
+  </div>
+<% end %>

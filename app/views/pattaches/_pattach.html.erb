@@ -1,0 +1,31 @@
+<div id="<%= dom_id pattach %>">
+  <p>
+    <strong>Title:</strong>
+    <%= pattach.title %>
+  </p>
+
+  <% if pattach.att.attached? %>
+
+<% if  pattach.att.image?%>
+<h2 class="entry-title"><a href="#"><%= link_to image_tag(pattach.att, class: "img_upload"),  rails_blob_path(pattach.att, disposition: "attachment") %>
+<% else %>
+
+
+<% end %>
+
+                                       <h2 class="entry-title"><a href="#"><%= link_to pattach.att.filename,  rails_blob_path(pattach.att, disposition: "attachment") %></a></h2>
+
+<% end %>
+
+</div>
+
+<style>
+
+.img_upload{
+   border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+</style>
